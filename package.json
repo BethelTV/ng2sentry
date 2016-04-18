@@ -1,10 +1,15 @@
 {
+  "private": true,
   "name": "ng2sentry",
   "version": "1.0.0",
   "description": "A sentry client for angular 2",
-  "main": "index.ts",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npm install autodts",
+    "postinstall": "autodts link",
+    "prepublish": "tsc && autodts generate"
   },
   "repository": {
     "type": "git",
@@ -21,9 +26,19 @@
   },
   "homepage": "https://github.com/BethelTV/ng2sentry#readme",
   "dependencies": {
-    "raven-js": "2.3.0"
+    "raven-js": "2.3.0",
+    "autodts": "0.0.6"
+  },
+  "devDependencies": {
+    "@lib/autodts-generator": "0.0.2",
+    "es6-shim": "0.35.0",
+    "reflect-metadata": "0.1.2",
+    "typescript": "^1.8.10",
+    "zone.js": "~0.6.11"
   },
   "peerDependencies": {
+    "rxjs": "5.0.0-beta.2",
     "angular2": "2.0.0-beta.15"
-  }
+  },
+  "typings": "./dist/index.d.ts"
 }

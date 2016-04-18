@@ -1,22 +1,36 @@
-import {ExceptionHandler, Injectable, Inject} from 'angular2/core';
+///<reference path="../Raven.d.ts"/>
+import {Injectable, ExceptionHandler} from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 import {IS_DART} from 'angular2/src/facade/lang';
 import RavenClient = RavenType.RavenClient;
-import * as Raven from 'raven-js/src/raven.js';
-
+import 'raven-js';
 
 @Injectable()
 export class SentryExceptionHandler extends ExceptionHandler {
 
   private _RavenClient: RavenClient;
 
-  constructor(@Inject('AppConfig') private _config) {
-    super(DOM, !IS_DART);
+  constructor (private _config) {
+    super(DOM , ! IS_DART);
+    Raven.config(_config.dsn , _config.options).install();
   }
 
-  call(exception: any, stackTrace?: any, reason?: string) {
+  setUserContext(data?: any) {
+    Raven.setUserContext(data);
+  }
 
-    debugger;
+  setExtraContext(data?: any) {
+    Raven.setExtraContext(data);
+  }
+
+  wrap(fn: Function, context?:any): Function {
+    return Raven.wrap(context, fn);
+  }
+
+  call (exception: any , stackTrace?: any , reason?: string) {
+
+    Raven.captureException(exception);
+    console.log(exception , stackTrace , reason);
 
   }
 }

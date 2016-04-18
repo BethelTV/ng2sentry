@@ -1,3 +1,5 @@
+declare const Raven;
+
 declare module RavenType {
 
   export interface RavenClient {
