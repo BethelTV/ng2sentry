@@ -12,7 +12,8 @@
     "build_dist": "rm -rf dist && tsc",
     "prepublish": "npm run typings && npm run build_dist",
     "lint": "tslint src/**.ts",
-    "typings": "typings install && npm run clean_ng2"
+    "typings": "typings install && npm run clean_ng2",
+    "postinstall": "npm run prepublish"
   },
   "repository": {
     "type": "git",
