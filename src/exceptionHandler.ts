@@ -1,14 +1,12 @@
-///<reference path="../Raven.d.ts"/>
+declare const Raven;
+
 import {Injectable, ExceptionHandler} from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 import {IS_DART} from 'angular2/src/facade/lang';
-import RavenClient = RavenType.RavenClient;
 import 'raven-js';
 
 @Injectable()
 export class SentryExceptionHandler extends ExceptionHandler {
-
-  private _RavenClient: RavenClient;
 
   constructor (private _config) {
     super(DOM , ! IS_DART);
