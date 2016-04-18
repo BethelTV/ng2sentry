@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "ng2sentry",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A sentry client for angular 2",
   "main": "./dist/index.js",
   "scripts": {
