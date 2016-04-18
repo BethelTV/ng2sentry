@@ -5,6 +5,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
+    "moduleResolution": "node",
     "declaration": true,
     "outDir": "dist"
   },
@@ -12,9 +13,6 @@
     "typings/browser.d.ts",
     "src/index.ts",
     "src/exceptionHandler.ts"
-  ],
-  "filesGlob": [
-    "src/*.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false

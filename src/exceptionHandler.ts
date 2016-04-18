@@ -1,5 +1,3 @@
-declare const Raven;
-
 import {Injectable, ExceptionHandler} from 'angular2/core';
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
 import {IS_DART} from 'angular2/src/facade/lang';
