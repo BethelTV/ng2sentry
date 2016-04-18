@@ -13,7 +13,7 @@
     "prepublish": "npm run typings && npm run build_dist",
     "lint": "tslint src/**.ts",
     "typings": "typings install && npm run clean_ng2",
-    "postinstall": "npm run prepublish"
+    "postinstall": "typings install"
   },
   "repository": {
     "type": "git",
